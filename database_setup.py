@@ -10,17 +10,19 @@ class User(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(100),nullable=False)
-    email = column(String(100),nullable=False)
+    email = Column(String(100),nullable=False)
     picture = Column(String(250))
 
 
-class Items(Base):
-    __tablename__ = 'items'
+class Catalog(Base):
+    __tablename__ = 'catalog'
 
     id = Column(Integer, primary_key = True)
     name = Column(String(80), nullable = False)
     description = Column(String(250))
     category = Column(String(25), nullable = False)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
 
     @property
     def serialize(self):

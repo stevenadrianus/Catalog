@@ -2,7 +2,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from database_setup import Base, Items
+from database_setup import Base, Catalog, User
 
 engine = create_engine('sqlite:///catalog.db')
 # Bind the engine to the metadata of the Base class so that the
@@ -19,9 +19,26 @@ DBSession = sessionmaker(bind=engine)
 # session.rollback()
 session = DBSession()
 
-# Adding items
-item1 = Items(name = 'Ball', description = 'To main item to play soccer',
-                category = 'Soccer')
+# Create dummy user
+User1 = User(name="Robo", email="Tinny@udacity.com",
+             picture='''https://pbs.twimg.com/profile_images/2671170543/18debd69
+             4829ed78203a5a36dd364160_400x400.png''')
+session.add(User1)
+session.commit()
 
+User2 = User(name="Barista", email="Tim@udacity.com",
+             picture='''https://pbs.twimg.com/profile_images/2671170543/18debd69
+             4829ed78203a5a36dd364160_400x400.png''')
+session.add(User2)
+session.commit()
+# Adding items
+item1 = Catalog(name='Ball', description='To main item to play soccer',
+                category='Soccer', user=User1 )
+
+session.add(item1)
+session.commit()
+
+item1 = Catalog(name='Basketball', description='To main item to play Basket',
+                category='Basket', user=User2 )
 session.add(item1)
 session.commit()

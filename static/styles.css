@@ -35,6 +35,10 @@ div {
 	display: block;
 }
 
+a {
+    text-decoration:none;
+}
+
 .header__bar {
     min-height: 100px;
     width: 100%;
@@ -79,12 +83,48 @@ div {
 
 .container {
     display: inline-block;
-    width: auto;
+    width: 85%;
     height: auto;
     min-width: 428px;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 50px;
     background-color: white;
-    padding: 20px;
+    padding: 25px 2.5% 25px 2.5%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+
+}
+
+.left {
+    display: inline-block;
+    float: left;
+    width: 20%;
+    height: 100%;
+    margin: 10px;
+    padding-right: 10px;
+}
+
+.right {
+    display: inline-block;
+    width: 65%;
+    height: 100%;
+    margin: 10px;
+    padding-left: 20px;
+    border-left: 3px solid #7d97ad;
+}
+
+.navy {
+    color: #0a244f;
+}
+
+.orange {
+    color: orange;
+    font-weight: 100;
+}
+
+.subcategory {
+    color: gray;
+    font-style: italic;
+    font-size: 12px;
 }
