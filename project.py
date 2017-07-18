@@ -91,11 +91,11 @@ def gconnect():
 
     stored_access_token = login_session.get('access_token')
     stored_gplus_id = login_session.get('gplus_id')
-    # if stored_access_token is not None and gplus_id == stored_gplus_id:
-    #     response = make_response(json.dumps('Current user is already connected.'),
-    #                              200)
-    #     response.headers['Content-Type'] = 'application/json'
-    #     return response
+# if stored_access_token is not None and gplus_id == stored_gplus_id:
+#     response = make_response(json.dumps('Current user is already connected.'),
+#                              200)
+#     response.headers['Content-Type'] = 'application/json'
+#     return response
 
     # Store the access token in the session for later use.
     login_session['access_token'] = access_token
@@ -195,7 +195,9 @@ def showMain():
     if 'username' not in login_session:
         return render_template('catalog.html', categories=catalogs, items=items)
     else:
-        return render_template('private_catalog.html', categories=catalogs, items=items)
+        return render_template('private_catalog.html',
+                            categories=catalogs,
+                            items=items)
 
 @app.route('/<cat>/')
 def showCategory(cat):
