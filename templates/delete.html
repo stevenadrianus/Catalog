@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block bodycontent %}
+
+<h2 class="navy">{{item.name}}</h2><br>
+<p>
+    Are you sure want to delete {{item.name}}?
+</p>
+
+<form action="#" method = 'post'>
+<button type="submit">Delete</button>
+<a href={{url_for('showMain')}} class='orange'>Cancel</a>
+{% endblock %}

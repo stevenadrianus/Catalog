@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block bodycontent %}
+<h2 class="navy">Add item</h2><br>
+
+<form action="{{url_for('newItem')}}" method = 'POST'>
+
+<p>Name:</p>
+<textarea rows="1" cols="50" name='name'>
+</textarea>
+
+<p>Description</p>
+<textarea rows="4" cols="50" name='description'>
+</textarea>
+
+<p>Category:</p>
+<textarea rows="1" cols="50" name='category'>
+</textarea>
+
+<br /><br />
+
+<input type='submit' value='Create'>
+
+</form>
+
+{% endblock %}

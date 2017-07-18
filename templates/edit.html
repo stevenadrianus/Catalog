@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% block bodycontent %}
+<h2 class="navy">Add item</h2><br>
+
+<form action="{{url_for('editItem', item_id=item.id)}}" method = 'POST'>
+
+<p>Name:</p>
+<textarea rows="1" cols="50" name='name'>{{item.name}}</textarea>
+
+<p>Description</p>
+<textarea rows="4" cols="50" name='description'>{{item.description}}</textarea>
+
+<p>Category:</p>
+<textarea rows="1" cols="50" name='category'>{{item.category}}</textarea>
+
+<br /><br />
+
+<input type='submit' value='Edit'>
+
+</form>
+
+{% endblock %}
